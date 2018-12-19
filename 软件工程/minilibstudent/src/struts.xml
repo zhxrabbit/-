@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="minilibstudent"   extends="struts-default">
+		<action name="login" class="minilib.action.LoginAction">
+			<result name="success">/main/main.jsp</result>
+			<result name="error">/main/login.jsp</result>
+		</action>
+ 	    <action name="*ManageTitlesAction" class="minilib.action.ManageTitlesAction"
+		method="{1}">
+			<result name="addbook" type="chain">findBookTypeManageTitlesAction</result>
+			<result name="booktype">/book/AddBook.jsp</result>
+			<result name="querybook">/book/QueryBookResults.jsp</result>
+			<result name="deletebook">/book/DeleteBookResults.jsp</result>
+		</action>
+		<action name="*ManageCodeAction" class="minilib.action.ManageCodeAction"
+		method="{1}">
+		    <result name="addcodepress" type="chain">findBookCodePressManageCodeAction</result>
+			<result name="codepress">/code/AddPress.jsp</result>
+			<result name="querycodepress">/code/QueryPressResults.jsp</result>
+			<result name="deletepress">/code/DeletePressResults.jsp</result>
+			<result name="addcodetype" type="chain">findBookCodeTypeManageCodeAction</result>
+			<result name="codetype">/code/AddType.jsp</result>
+			<result name="querycodetype">/code/QueryTypeResults.jsp</result>
+			<result name="deletetype">/code/DeleteTypeResults.jsp</result>
+		</action>
+		<action name="*ManageBrowseAction" class="minilib.action.ManageBrowseAction"
+		method="{1}">
+			<result name="querybrowse">/core/QueryBrowseResults.jsp</result>
+		</action>
+		<action name="*ManageUserAction" class="minilib.action.ManageUserAction"
+		method="{1}">
+			<result name="adduser" type="chain">findBookUserManageUserAction</result>
+			<result name="bookuser">/user/AddUser.jsp</result>
+			<result name="queryuser">/user/QueryUserResults.jsp</result>
+<!-- 			<result name="deletebook">/book/DeleteBookResults.jsp</result> -->
+		</action>
+	</package>
+</struts>
