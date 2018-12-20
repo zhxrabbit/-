@@ -1,0 +1,4 @@
+.detail-iamge{
+  width: 300rpx;
+  height: 300rpx;
+}
